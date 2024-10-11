@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+    font-weight: 200;
+}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+:root{
+    --border-1: #D8A25E;
+    --text-1: #83BFAC;
+    --text-2: #6D9B8C;
+    --back-1: #16423C;
+    --back-2: #16423C;
+}
+body{
+    background-image: url(../img/Screenshot\ 2024-10-11\ 134830.png);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 50px;
+    border: 4px solid var(--border-1);
+    border-radius: 24px;
+    max-width: 1290px;
+    width: 100%;
+    height: 850px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.text-box #a{
+    color: var(--text-1);
+    margin-bottom: 10px;
+}
+.text-box h1{
+    color: var(--text-1);
+    font-size: 64px;
+    margin-bottom: 200px;
+}
+.text-box h3{
+    font-size: 48px;
+}
+.text-box #b{
+    color: var(--text-2);
+    margin-bottom: 60px;
+}
+.text-box{
+    max-width: 550px;
+    width: 100%;
+}
+.login-box{
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid var(--border-1);
+    padding-left: 70px;
+}
+input{
+    margin-top: 58px;
+}
+input[type="input-btn"]{
+    max-width: 560px;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    z-index: 1;
+}
+input[type="password"]{
+    max-width: 560px;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    z-index: 1;
+}
+
+.userName{
+    position: absolute;
+    color: var(--text-1);
+    font-size: 24px;
+    margin-top: 90px;
+    margin-left: 30px;
+    transition: 0.2s ease;
+    width: 200px;
+    justify-items: center;
+    border-radius: 50px;
+    z-index: 0;
+}
+
+input:focus ,input:valid{
+    font-size: 24px;
+    color: var(--text-1);
+    padding: 0px 30px;
+}
+input:focus + .userName ,input:valid + .userName{
+    font-size: 20px;
+    transform: translate(-5px,-45px) scale(0.88);
+    background-color: var(--back-2);
+    z-index: 1;
+}
+.pass{
+    position: absolute;
+    color: var(--text-1);
+    font-size: 24px;
+    margin-top: 245px;
+    margin-left: 30px;
+    transition: 0.2s ease;
+    width: 200px;
+    justify-items: center;
+    border-radius: 50px;
+    z-index: 0;
+}
+input:focus + .pass ,input:valid + .pass{
+    font-size: 20px;
+    transform: translate(-5px,-45px) scale(0.88);
+    background-color: var(--back-2);
+    z-index: 1;
+}  
+#select-btn{
+    max-width: 560px;
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    z-index: 1;
+}
+.icon-down{
+    position: absolute;
+    color: var(--text-1);
+    font-size: 24px;
+    margin-top: 395px;
+    margin-left: 30px;
+    transition: 0.2s ease;
+    width: 250px;
+    justify-items: center;
+    border-radius: 50px;
+    z-index: 0;
+}
+select:focus,select:valid{
+    font-size: 24px;
+    color: var(--text-1);
+    padding: 0px 30px;
+}
+select:focus + .icon-down {
+    font-size: 20px;
+    transform: translate(-5px,-45px) scale(0.88);
+    background-color: var(--back-2);
+    z-index: 1;
+}
+.login-btn{
+    max-width: 560px;
+    width: 100%;
+    height: 100px;
+    background-color: var(--border-1);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 50px;
+    border: none;
+    margin-top: 110px;
+}
