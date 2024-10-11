@@ -176,4 +176,9 @@ select:focus + .icon-down {
     border-radius: 50px;
     border: none;
     margin-top: 110px;
+    opacity: 0.95;
+}
+.login-btn:hover{
+    cursor: pointer;
+    opacity: 1;
 }
