@@ -1,10 +1,12 @@
 FROM node:18
 
-WORKDIR /usc/src/app/
+WORKDIR /usr/src/app/
+
+ENV NODE_ENV=production
 
 COPY ./package*.json ./
 
-RUN npm install
+RUN npm install --production
 
 COPY ./ ./
 
