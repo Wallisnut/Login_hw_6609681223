@@ -13,7 +13,7 @@ function submitLogin(event) {
   const submitButton = document.querySelector(".login-btn");
   submitButton.disabled = true;
 
-  fetch("https://restapi.tu.ac.th/api/v1/auth/Ad/verify", {
+  fetch("/api/auth", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,11 +32,31 @@ function submitLogin(event) {
       document.getElementById("message").innerText =
         data.message || "Login successful!";
       submitButton.disabled = false;
+
+      call_REST_API_Hello(username, password);
     })
     .catch((error) => {
       console.error("Error:", error);
       document.getElementById("message").innerText =
         "An error occurred. Please try again later.";
-      submitButton.disabled = false; // Re-enable button
+      submitButton.disabled = false;
     });
+}
+
+function call_REST_API_Hello(username, password) {
+  const url =
+    "http://localhost:8081/api/auth" +
+    new URLSearchParams({ myName: username, lastName: password }).toString();
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.text();
+    })
+    .then((text) => {
+      document.getElementById("message").innerText = text;
+    })
+    .catch((error) => console.error("Error:", error));
 }
