@@ -3,10 +3,10 @@ function submitLogin(event) {
 
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
+  const messageDiv = document.getElementById("message");
 
   if (!username || !password) {
-    document.getElementById("message").innerText =
-      "Please enter both username and password.";
+    messageDiv.innerText = "Please enter both username and password.";
     return;
   }
 
@@ -29,16 +29,15 @@ function submitLogin(event) {
       return response.json();
     })
     .then((data) => {
-      document.getElementById("message").innerText =
-        data.message || "Login successful!";
+      messageDiv.innerText = data.message || "Login successful!";
       submitButton.disabled = false;
 
       call_REST_API_Hello(username, password);
     })
     .catch((error) => {
       console.error("Error:", error);
-      document.getElementById("message").innerText =
-        "An error occurred. Please try again later.";
+      messageDiv.innerText =
+        error.message || "An error occurred. Please try again later.";
       submitButton.disabled = false;
     });
 }
@@ -46,6 +45,7 @@ function submitLogin(event) {
 function call_REST_API_Hello(username, password) {
   const url =
     "http://localhost:8081/api/auth" +
+    "?" +
     new URLSearchParams({ myName: username, lastName: password }).toString();
 
   fetch(url)
@@ -58,5 +58,9 @@ function call_REST_API_Hello(username, password) {
     .then((text) => {
       document.getElementById("message").innerText = text;
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => {
+      console.error("Error:", error);
+      document.getElementById("message").innerText =
+        "An error occurred while calling the API.";
+    });
 }
