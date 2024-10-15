@@ -14,7 +14,7 @@ import java.util.Map;
 public class UserControler {
 
     private final String API_URL = "https://restapi.tu.ac.th/api/v1/auth/Ad/verify";
-    private final String API_KEY = "TUe33b2c50821a92ab2a6558ae461bdc819b22ba4d33b408d5eefe9e9bbf0cdb5ffb8185a7dd452f3afdc195b79bf45cba";
+    private final String API_KEY = "";
 
     @PostMapping("/login")
     @ResponseBody
