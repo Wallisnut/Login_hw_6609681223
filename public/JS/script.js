@@ -34,8 +34,11 @@ function submitLogin(event) {
   })
   .then(data => {
     const resultElement = document.getElementById('b');
-    resultElement.innerText = JSON.stringify(data);
-    resultElement.style.fontSize = '20px';
+    const resultText = `Username: ${data.displayname_th}
+    Department: ${data.department}
+    Faculty: ${data.faculty}`;
+    resultElement.innerText = resultText;
+    resultElement.style.fontSize = '25px';
   })
   .catch(error => console.error('Error:', error));
 }
@@ -62,8 +65,11 @@ function call_REST_API_Hello() {
   })
   .then(text => {
     const resultElement = document.getElementById('b');
-    resultElement.innerText = text;
-    resultElement.style.fontSize = '20px';
+    const resultText = `Username: ${text.displayname_th}
+    Department: ${text.department}
+    Faculty: ${text.faculty}`;
+    resultElement.innerText = resultText;
+    resultElement.style.fontSize = '25px';
   })
   .catch(error => console.error('Error:', error));
 }
