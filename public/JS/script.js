@@ -5,7 +5,6 @@ function submitLogin(event) {
   const password = document.getElementById("password").value;
   const role = document.getElementById("select-btn").value;
   const usernameError1 = document.getElementById("message1");
-  const usernameError2 = document.getElementById("message2");
   const usernameError3 = document.getElementById("message3");
   const form = document.getElementById("loginForm");
 
@@ -58,7 +57,7 @@ function submitLogin(event) {
       document.getElementById('d').innerHTML = '';
       form.reset();
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => {console.error("Error:", error); form.reset();});
 
 }
 document.getElementById("toggle-password").addEventListener("click", function() {
