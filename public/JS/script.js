@@ -4,13 +4,17 @@ function submitLogin(event) {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const role = document.getElementById("select-btn").value;
+  const usernameError1 = document.getElementById("message1");
+  const usernameError2 = document.getElementById("message2");
+  const form = document.getElementById("loginForm");
 
-  if (!username || !password) {
-    alert("Please fill in both fields");
-    return;
+  if (username.length < 10) {
+    usernameError1.innerText = "You need to enter 10 characters for the username.";
+    usernameError1.style.color = "red"; 
+    return; 
   }
   if (role == "--select your role--") {
-    alert("Please select role");
+    usernameError2.innerText = "Please select role";
     return;
   }
 
@@ -42,36 +46,17 @@ function submitLogin(event) {
     Faculty: ${data.faculty}`;
       resultElement.innerText = resultText;
       resultElement.style.fontSize = "25px";
+      resultElement.style.marginTop ="-10px";
+
+      const deletee = document.getElementById('a');
+      deletee.style.marginTop = "-100px";
+      deletee.innerHTML = `Hello Welcome back!`
+      document.getElementById('c').innerHTML = '';
+      document.getElementById('d').innerHTML = '';
+      form.reset();
     })
     .catch((error) => console.error("Error:", error));
+
 }
-function call_REST_API_Hello() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
 
-  if (!username || !password) {
-    alert("Please fill in both fields");
-    return;
-  }
 
-  const url =
-    "http://localhost:8000/?" +
-    new URLSearchParams({ myName: username, lastName: password }).toString();
-
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.text();
-    })
-    .then((text) => {
-      const resultElement = document.getElementById("b");
-      const resultText = `Username: ${text.displayname_th}
-    Department: ${text.department}
-    Faculty: ${text.faculty}`;
-      resultElement.innerText = resultText;
-      resultElement.style.fontSize = "25px";
-    })
-    .catch((error) => console.error("Error:", error));
-}
