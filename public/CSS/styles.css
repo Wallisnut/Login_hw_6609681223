@@ -73,7 +73,7 @@ body {
   padding-left: 70px;
 }
 #message1,
-#message2 {
+#message2,#message3 {
   position: absolute;
   color: var(--text-2);
   font-size: 15px;

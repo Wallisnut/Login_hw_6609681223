@@ -6,6 +6,7 @@ function submitLogin(event) {
   const role = document.getElementById("select-btn").value;
   const usernameError1 = document.getElementById("message1");
   const usernameError2 = document.getElementById("message2");
+  const usernameError3 = document.getElementById("message3");
   const form = document.getElementById("loginForm");
 
   if (username.length < 10) {
@@ -14,8 +15,10 @@ function submitLogin(event) {
     return; 
   }
   if (role == "--select your role--") {
-    usernameError2.innerText = "Please select role";
+    usernameError3.innerText = "Please select role";
     return;
+  }else{
+    usernameError3.innerText = "";
   }
 
   const loginData = {
