@@ -58,5 +58,17 @@ function submitLogin(event) {
     .catch((error) => console.error("Error:", error));
 
 }
+document.getElementById("toggle-password").addEventListener("click", function() {
+  const passwordField = document.getElementById("password");
+  const button = this;
+
+  if (passwordField.type === "password") {
+      passwordField.type = "text"; 
+      button.innerText = "Hide"; 
+  } else {
+      passwordField.type = "password";
+      button.innerText = "Show"; 
+  }
+});
 
 
